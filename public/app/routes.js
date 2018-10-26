@@ -1,0 +1,20 @@
+angular.module('appRoutes', ['ngRoute'])
+
+.config(function($routeProvider, $locationProvider) {
+  // when user enters .com/, site sends them to education.html
+  $routeProvider
+  .when('/', {
+    templateUrl: 'app/views/pages/education.html'
+  })
+
+  .when('/main', {
+    templateUrl: 'app/views/pages/main.html'
+  })
+
+  .otherwise({redirectTo: '/'});
+
+  $locationProvider.html5Mode({
+    enabled: true,
+    requireBase: false
+  });
+});
