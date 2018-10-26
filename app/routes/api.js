@@ -1,6 +1,8 @@
-module.exports {
+var User = require('../models/user');
+
+module.exports = function(router) {
   // adds user to database
-  app.post('/users', function(req, res) {
+  router.post('/users', function(req, res) {
     var user = new User();
     user.email = req.body.username;
     user.password = req.body.password;
@@ -19,4 +21,6 @@ module.exports {
       });
     }
   });
+
+  return router;
 }
