@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <base href="/">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,11 +12,19 @@
 
     <script src="assets/js/angular.js"></script>
     <script src="assets/js/angular-route.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/routes.js"></script>
+
+    <script src="app/controllers/userCtrl.js"></script>
+    <script src="app/controllers/primaryCtrl.js"></script>
+
+    <script src="app/services/userServices.js"></script>
+    <script src="app/services/authServices.js"></script>
 
     <title>Belief</title>
   </head>
 
-  <body>
+  <body ng-app="userApp" ng-controller="primaryCtrl as main">
 
     <!-- Fixed navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -31,11 +40,12 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#education">Education</a></li>
-            <li><a href="#reports">Reports</a></li>
+            <li class="active"><a href="/">Education</a></li>
             <li><a href="#community">Community</a></li>
-            <li><a href="#main">Main Page</a></li>
+            <li><a href="/main">Main Page</a></li>
             <li><a href="#history">History Page</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/createuser">Create New User</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -60,6 +70,10 @@
         <h1>Theme example</h1>
         <p>This is a template showcasing the optional theme stylesheet included in Bootstrap. Use it as a starting point to create something more unique by building on or modifying it.</p>
       </div>
+
+      <!-- Injects specific view onto page, for expample main.html for /main -->
+      <div ng-view></div>
+
     </div>
 
 
