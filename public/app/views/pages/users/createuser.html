@@ -1,0 +1,39 @@
+<div class="page-header">
+  <h1>Create New User</h1>
+</div>
+
+<form ng-submit="create.createUser(createData);">
+  <label>Email:</label>
+  <input class="form-control" type="text" name="email" placeholder="tmasse@gmail.com" ng-model="create.createData.email">
+  <br>
+
+  <label>Name:</label>
+  <input class="form-control" type="text" name="name" placeholder="Taylor Masse" ng-model="create.createData.name">
+  <br>
+
+  <label>Password:</label>
+  <input class="form-control" type="password" name="password" placeholder="password" ng-model="create.createData.password">
+  <br>
+
+  <button class="btn btn-primary" type="submit">Create New User</button>
+</form>
+
+<br>
+
+<div class="jumbotron text-center" ng-show="create.loading">
+  <span class="glyphicon glyphicon-repeat spinner"></span>
+  <p>Loading...</p>
+</div>
+
+<br>
+
+<div class="row show-hide-message" ng-show="create.successMsg">
+  <div class="alert alert-success">{{create.successMsg}}</div>
+</div>
+
+<br>
+
+<div class="row show-hide-message" ng-show="create.errorMsg">
+  <div class="alert alert-danger">{{create.errorMsg}}</div>
+</div>
+<br>

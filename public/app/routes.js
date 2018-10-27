@@ -11,6 +11,12 @@ angular.module('appRoutes', ['ngRoute'])
     templateUrl: 'app/views/pages/main.html'
   })
 
+  .when('/createuser', {
+    templateUrl: 'app/views/pages/users/createuser.html',
+    controller: 'createCtrl',
+    controllerAs: 'create'
+  })
+
   .otherwise({redirectTo: '/'});
 
   $locationProvider.html5Mode({
