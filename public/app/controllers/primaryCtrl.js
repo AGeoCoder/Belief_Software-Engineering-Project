@@ -1,16 +1,15 @@
-angular.module('userControllers', ['userServices'])
+angular.module('primaryController', ['authServices'])
 
-.controller('createCtrl', function($http, $location, User) {
+.controller('primaryCtrl', function(Auth, $location) {
   var app = this;
 
-  // gets new user information from front end and passes info to back end
-  this.createUser = function(createData) {
+  this.doLogin = function(loginData) {
     // shows loading icon while true
     app.loading = true;
     app.errorMsg = false;
 
     // sends data to app/routes/api.js
-    User.create(app.createData).then(function(data) {
+    Auth.login(app.loginData).then(function(data) {
       if (data.data.success) {
         app.loading = false;
         // show success Message

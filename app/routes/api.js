@@ -1,7 +1,8 @@
 var User = require('../models/user');
 
 module.exports = function(router) {
-  // adds user to database
+
+  // adds user to database route
   router.post('/users', function(req, res) {
     var user = new User();
     user.email = req.body.email;
@@ -21,6 +22,30 @@ module.exports = function(router) {
         }
       });
     }
+  });
+
+  // user login route
+  router.post('/authenticate', function(req, res) {
+    User.findOne({email: req.body.email}).select('email name password').exec(function(err, user) {
+      if (err) throw err;
+
+      if (!user) {
+        res.json({success: false, message: 'Could not authenticate user'})
+      } else if (user) {
+        // makes sure a pasword was input
+        if (req.body.password) {
+          var validPassword = user.comparePassword(req.body.password);
+        } else {
+          res.json({success: false, message: 'No password provided'});
+        }
+
+        if (!validPassword) {
+          res.json({success: false, message: 'Could not authenticate password'});
+        } else {
+          res.json({success: true, message: 'User authenticated'})
+        }
+      }
+    });
   });
 
   return router;

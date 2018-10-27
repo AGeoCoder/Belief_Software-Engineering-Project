@@ -14,13 +14,17 @@
     <script src="assets/js/angular-route.js"></script>
     <script src="app/app.js"></script>
     <script src="app/routes.js"></script>
+
     <script src="app/controllers/userCtrl.js"></script>
+    <script src="app/controllers/primaryCtrl.js"></script>
+
     <script src="app/services/userServices.js"></script>
+    <script src="app/services/authServices.js"></script>
 
     <title>Belief</title>
   </head>
 
-  <body ng-app="userApp">
+  <body ng-app="userApp" ng-controller="primaryCtrl as main">
 
     <!-- Fixed navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
