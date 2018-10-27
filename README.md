@@ -7,7 +7,7 @@ To start:
 3. Open git bash or whatever other bash you prefer.
 4. Go to directory housing this project (for me this is Documents/GitHub/BeliefMeToo)
 5. Install each required nodejs subfamily if you haven't already by inputting 'npm install [family] --save'
-   where family is express, morgan, mongoose, or bcrypt-nodejs (you'll have to install all of them)
+   where family is express, morgan, mongoose, bcrypt-nodejs, jsonwebtoken (you'll have to install all of them)
 6. Input 'node server.js' into the bash. This will connect you to the server and should output something like:
    Server is running on port: 8080
    Successfully connected to MongoDB
