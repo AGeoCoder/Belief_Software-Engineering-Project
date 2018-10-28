@@ -6,7 +6,15 @@ var app = angular.module('appRoutes', ['ngRoute'])
   .when('/', {
     templateUrl: 'app/views/pages/education.html'
   })
+  // Education related routing:
+  .when('/article', {
+    templateUrl: 'app/views/pages/article.html',
+  })
+  .when('/resources', {
+    templateUrl: 'app/views/pages/resources.html',
+  })
 
+  // Main
   .when('/main', {
     templateUrl: 'app/views/pages/main.html',
     authenticated: true
@@ -24,7 +32,7 @@ var app = angular.module('appRoutes', ['ngRoute'])
   .when('/reports', {
     templateUrl: 'app/views/pages/reports.html'
   })
-
+  // Login related routing:
   .when('/login', {
     templateUrl: 'app/views/pages/users/login.html',
     controller: 'primaryCtrl',
