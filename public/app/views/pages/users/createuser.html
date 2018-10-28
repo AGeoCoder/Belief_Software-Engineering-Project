@@ -2,17 +2,29 @@
   <h1>Create New User</h1>
 </div>
 
-<form ng-submit="create.createUser(createData);">
+<form name="regForm" ng-submit="create.createUser(createData);" novalidate>
   <label>Email:</label>
-  <input class="form-control" type="text" name="email" placeholder="tmasse@gmail.com" ng-model="create.createData.email">
+  <input class="form-control" type="text" name="email" placeholder="tmasse@gmail.com" ng-model="create.createData.email" required>
+  <p class="help-block" ng-show="(!regForm.email.$pristine && regForm.email.$error.required) ||
+    (regForm.$submitted && regForm.email.$error.required)">This field is required</p>
   <br>
 
   <label>Name:</label>
-  <input class="form-control" type="text" name="name" placeholder="Taylor Masse" ng-model="create.createData.name">
+  <input class="form-control" type="text" name="name" placeholder="Taylor Masse" ng-model="create.createData.name" required>
+  <p class="help-block" ng-show="(!regForm.name.$pristine && regForm.name.$error.required) ||
+    (regForm.$submitted && regForm.name.$error.required)">This field is required</p>
   <br>
 
   <label>Password:</label>
-  <input class="form-control" type="password" name="password" placeholder="password" ng-model="create.createData.password">
+  <input class="form-control" type="password" name="password" placeholder="password" ng-model="firstPassword" required>
+  <p class="help-block" ng-show="(!regForm.password.$pristine && regForm.password.$error.required) ||
+    (regForm.$submitted && regForm.password.$error.required)">This field is required</p>
+  <br>
+
+  <label>Confirm Password:</label>
+  <input class="form-control" type="password" name="secondPassword" placeholder="password" ng-model="confirm" match="{{[firstPassword]}}"
+    ng-change="create.createData.password = confirm" required>
+  <p ng-show="!confirmed && !regForm.secondPassword.$pristine">Passwords do not match</p>
   <br>
 
   <button class="btn btn-primary" type="submit">Create New User</button>
