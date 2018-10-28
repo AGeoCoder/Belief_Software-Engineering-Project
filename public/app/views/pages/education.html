@@ -2,7 +2,7 @@
   <h1>Welcome to education</h1>
   <h4>Types of Sexual Violence:</h4>
   <ul>
-    <li><a id="link1" href="app/views/pages/article.html">What is sexual assault?</a></li>
+    <li><a href="/article">What is sexual assault?</a></li>
     <li><a href="/article">Intimate Partner Sexual Violence</a></li>
   </ul>
   <h4>Effects of Sexual Violence:</h4>
@@ -28,14 +28,3 @@
   </ul>
 
 </div>
-
-  <script type="text/javascript">
-  var link1 = document.getElementById("link1");
-  link1.onclick = function(e) { return myHandler(e); };
-  function myHandler(e) {
-      // do whatever
-      window.open("/article");
-      // prevent execution of the a href
-      return false;
-  }
-  </script>
