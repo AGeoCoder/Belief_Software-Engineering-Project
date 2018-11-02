@@ -1,0 +1,47 @@
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body{
+  font-family: 'Neutra Text Alt';
+}
+
+h1{
+  font-family: 'Neutra Text Alt';
+}
+
+h2{
+  font-size: 3vmin;
+  letter-spacing: 0.06em;
+  font-family: 'Neutra Text Alt';
+  font-weight: bold;
+  color: rgb(242,180,182);
+}
+
+
+p{
+  font-size:1.8vmin;
+  line-height: 3.3vmin;
+  letter-spacing: 0.06em;
+  color: rgb(160,160,160);
+  font-family: 'Neutra Text Alt';
+  font-weight: normal;
+}
+
+.mainPagecontainer{
+  position:absolute;
+  width:65%;
+}
+
+.subTitle{
+  position:relative;
+  left:5%;
+}
+
+.secIntro{
+  margin-top: 2vmin;
+  position:relative;
+  left:11%;
+}

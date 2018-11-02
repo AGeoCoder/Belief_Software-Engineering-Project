@@ -3,6 +3,8 @@ angular.module('primaryController', ['authServices'])
 .controller('primaryCtrl', function(Auth, $location) {
   var app = this;
 
+
+
   this.doLogin = function(loginData) {
     // shows loading icon while true
     app.loading = true;
