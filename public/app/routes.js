@@ -7,8 +7,10 @@ var app = angular.module('appRoutes', ['ngRoute'])
     templateUrl: 'app/views/pages/education.html'
   })
   // Education related routing:
-  .when('/article', {
+  .when('/article/:articleID', {
     templateUrl: 'app/views/pages/article.html',
+    controller: 'articleCtrl',
+    controllerAs: 'article'
   })
   .when('/resources', {
     templateUrl: 'app/views/pages/resources.html',
