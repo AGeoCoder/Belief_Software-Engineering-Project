@@ -7,7 +7,7 @@ To start:
 3. Open git bash or whatever other bash you prefer.
 4. Go to directory housing this project (for me this is Documents/GitHub/BeliefMeToo)
 5. Install each required nodejs subfamily if you haven't already by inputting 'npm install [family] --save'
-   where family is express, morgan, mongoose, bcrypt-nodejs, mongoose-title-case, jsonwebtoken, or mongoose-validator
+   where family is express, morgan, mongoose, bcrypt-nodejs, mongoose-title-case, jsonwebtoken, mongoose-validator, nodemailer, or nodemailer-sendgrid-transport
    (you'll have to install all of them) npm install mongoose --save for example
 6. Input 'node server.js' into the bash. This will connect you to the server and should output something like:
    Server is running on port: 8080
