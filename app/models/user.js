@@ -13,6 +13,7 @@ var nameValidator = [
   })
 ];
 
+// makes sure email contains @ symbol and . as well as a few other criteria
 var emailValidator = [
   validate({
     validator: 'isEmail',
@@ -26,6 +27,7 @@ var emailValidator = [
   })
 ];
 
+// makes sure password is between 8 and 35 characters as well as a few extra criteria
 var passwordValidator = [
   validate({
     validator: 'matches',
@@ -40,10 +42,12 @@ var passwordValidator = [
   })
 ];
 
+// attributes for a single user
 var UserSchema = new Schema({
   email: { type: String, lowercase: true, required: true, unique: true, validate: emailValidator },
   password: { type: String, required: true, validate: passwordValidator },
   name: { type: String, required: true, validate: nameValidator },
+  // token sent to email when password is reset
   resettoken: { type: String, required: false}
 });
 
@@ -68,4 +72,5 @@ UserSchema.methods.comparePassword = function(password) {
   return bcrypt.compareSync(password, this.password);
 };
 
+// user class can be referenced by 'User'
 module.exports = mongoose.model('User', UserSchema);

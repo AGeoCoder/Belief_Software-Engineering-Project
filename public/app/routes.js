@@ -28,7 +28,9 @@ var app = angular.module('appRoutes', ['ngRoute'])
   })
 
   .when('/community', {
-    templateUrl: 'app/views/pages/community.html'
+    templateUrl: 'app/views/pages/community.html',
+    controller: 'commCtrl',
+    controllerAs: 'comm'
   })
 
   .when('/reports', {
