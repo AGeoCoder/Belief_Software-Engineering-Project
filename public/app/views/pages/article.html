@@ -3,12 +3,15 @@
 <body>
 
 <h1>Article Page</h1>
-<p>Article text below</p>
 
+<div id="text">
+  <p><iframe ng-src="{{article.articleURL | trusted}}" frameborder="0" height="800" width="95%"></iframe></p>
+</div>
+<!--
 <div id="text">
   <p><iframe src="https://cdn.rawgit.com/amgreenstreet/BeliefMeToo/master/public/articles/Intimate_Partner_Sexual_Violence.txt"
     frameborder="0" height="800" width="95%"></iframe></p>
 </div>
-
+-->
 </body>
 </html>
