@@ -10,7 +10,6 @@
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav">
-
         <li ng-repeat="option in options" ng-class="{active: option.title == selected}"><a href="{{option.link}}" ng-click="select(option.title)" >{{option.title | uppercase}}</a></li>
 
         <!--li class="dropdown">
