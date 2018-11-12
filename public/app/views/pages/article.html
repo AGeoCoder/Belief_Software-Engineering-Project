@@ -2,10 +2,18 @@
 <html>
 <body>
 
-<h1>Article Page</h1>
+<h1 ng-hide="article.hide">Article Page</h1>
+
+<!-- Hi -->
 
 <div id="text">
-  <p><iframe ng-src="{{article.articleURL | trusted}}" frameborder="0" height="800" width="95%"></iframe></p>
+  <p><iframe ng-hide="article.hide" ng-src="{{article.articleURL | trusted}}" frameborder="0" height="800" width="95%"></iframe></p>
+
+  <div class="row show-hide-message" ng-hide="!article.hide">
+    <h1>Trigger Warning</h1>
+    <div class="alert alert-danger">This article contains information about sexual assault and/or violence which may be triggering to survivors.</div>
+    <button type="button" class="btn btn-danger" ng-click="article.show();">Continue to Article</button>
+  </div>
 </div>
 <!--
 <div id="text">

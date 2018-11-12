@@ -1,3 +1,41 @@
-<div class="page-header">
+<!--<div class="page-header">
   <h1>Hello {{primary.name}} from community</h1>
+</div>-->
+
+<h1 class="page-header">Community</h1>
+
+<button type="button" name="button" class="btn btn-warning" ng-click="comm.createPost();">Create Post</button>
+
+<br>
+<br>
+
+<div ng-hide="comm.hide">
+  <div class="panel panel-primary">
+
+    <div class="panel-heading">
+      <h3 class="panel-title">Title</h3>
+    </div>
+
+    <div class="panel-body">
+      Yabba dabba doo
+    </div>
+
+    <div class="panel-footer">
+      <p><strong>Posted by: </strong>author</p>
+      <p><strong>Posted: </strong>date</p>
+    </div>
+
+    <ul class="list-group">
+      <li class="list-group-item">
+        <button type="button" name="button" class="btn btn-sm btn-warning" ng-click="comm.createComment()">Comment</button>
+        <br/>
+
+        <!--<form>
+          <textarea name="comment" rows="10" cols="30" class="form-control"></textarea>
+          <button type="button" name="button" class="btn btn-sm btn-info">Submit</button>
+          <button type="button" name="button" class="btn btn-sm btn-info">Cancel</button>
+        </form> -->
+      </li>
+    </ul>
+  </div>
 </div>

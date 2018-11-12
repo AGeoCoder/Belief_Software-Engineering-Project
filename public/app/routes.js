@@ -30,7 +30,9 @@ router.config(function($routeProvider, $locationProvider) {
   })
 
   .when('/community', {
-    templateUrl: 'app/views/pages/community.html'
+    templateUrl: 'app/views/pages/community.html',
+    controller: 'commCtrl',
+    controllerAs: 'comm'
   })
 
   .when('/reports', {
@@ -41,6 +43,20 @@ router.config(function($routeProvider, $locationProvider) {
     templateUrl: 'app/views/pages/users/login.html',
     controller: 'primaryCtrl',
     controllerAs: 'primary',
+    authenticated: false
+  })
+
+  .when('/resetpassword', {
+    templateUrl: 'app/views/pages/users/forgotpassword.html',
+    controller: 'passwordCtrl',
+    controllerAs: 'password',
+    authenticated: false
+  })
+
+  .when('/reset/:token', {
+    templateUrl: 'app/views/pages/users/newpassword.html',
+    controller: 'resetCtrl',
+    controllerAs: 'reset',
     authenticated: false
   })
 
