@@ -1,4 +1,5 @@
-app.controller('tabbarController',['$scope',function($scope){
+angular.module('tabbarController', [])
+.controller('tabbarCtrl',['$scope',function($scope){
   $scope.options = [
     {
       title: 'Education',
