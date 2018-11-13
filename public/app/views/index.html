@@ -17,16 +17,15 @@
     <script src="assets/js/angular.js"></script>
     <script src="assets/js/angular-route.js"></script>
 
-<<<<<<< HEAD
+
     <title>Belief</title>
   </head>
-=======
+
     <script src="app/controllers/userCtrl.js"></script>
     <script src="app/controllers/primaryCtrl.js"></script>
     <script src="app/controllers/emailCtrl.js"></script>
     <script src="app/controllers/articleCtrl.js"></script>
     <script src="app/controllers/commCtrl.js"></script>
->>>>>>> 50e34ce66529e168f67f8a0317c2a9148a86798a
 
 
 
@@ -53,8 +52,15 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav">
 
-            <li ng-repeat="option in options" ng-class="{active: option.title == selected}"><a href="{{option.link}}" ng-click="select(option.title)" >{{option.title | uppercase}}</a></li>
-
+            <!--li ng-repeat="option in options" ng-class="{active: option.title == selected}"><a href="{{option.link}}" ng-click="select(option.title)" >{{option.title | uppercase}}</a></li-->
+            <li class="active"><a href="/">Education</a></li>
+            <li><a href="/community">Community</a></li>
+            <li><a href="/reports">Reports</a></li>
+            <li><a href="/main">Main Page</a></li>
+            <li><a href="/history">History Page</a></li>
+            <li><a ng-show="!primary.isLoggedIn" href="/login">Login</a></li>
+            <li><a ng-show="primary.isLoggedIn" href="#" ng-click="primary.logout();">Logout</a></li>
+            <li><a href="/createuser">Create New User</a></li>
             <!--li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -80,6 +86,7 @@
     <!--nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
+          <img class="logo" src="{{logoUrl}}">
           <a class="navbar-brand" href="#">Belief the #MeToo Website</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
