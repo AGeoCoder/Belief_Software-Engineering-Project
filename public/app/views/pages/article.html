@@ -4,8 +4,6 @@
 
 <h1 ng-hide="article.hide">Article Page</h1>
 
-<!-- Hi -->
-
 <div id="text">
   <p><iframe ng-hide="article.hide" ng-src="{{article.articleURL | trusted}}" frameborder="0" height="800" width="95%"></iframe></p>
 
@@ -15,11 +13,13 @@
     <button type="button" class="btn btn-danger" ng-click="article.show();">Continue to Article</button>
   </div>
 </div>
-<!--
-<div id="text">
-  <p><iframe src="https://cdn.rawgit.com/amgreenstreet/BeliefMeToo/master/public/articles/Intimate_Partner_Sexual_Violence.txt"
-    frameborder="0" height="800" width="95%"></iframe></p>
+
+<div ng-hide="article.hide">
+  <h1>
+    Related Articles
+  </h1>
+    <a href={{article.relatedURL}}>{{article.relatedTitle}}</a>
 </div>
--->
+
 </body>
 </html>
