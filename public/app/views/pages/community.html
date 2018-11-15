@@ -4,12 +4,39 @@
 
 <h1 class="page-header">Community</h1>
 
-<button type="button" name="button" class="btn btn-warning" ng-click="comm.createPost();">Create Post</button>
+<button type="button" name="button" class="btn btn-warning" ng-click="comm.newPost();" ng-hide="!comm.hide">Create Post</button>
 
 <br>
 <br>
 
-<div ng-hide="comm.hide">
+<form name="regForm" ng-submit="comm.createPost(createData);" ng-hide="comm.hide" novalidate>
+  <label>Title:</label>
+  <input class="form-control" id="title" type="text" autocomplete="off" name="title" placeholder="Post Title" ng-model="comm.createData.title" required>
+  <p class="help-block" ng-show="(!regForm.title.$pristine && regForm.title.$error.required) ||
+    (regForm.$submitted && regForm.title.$error.required)">This field is required</p>
+  <br>
+
+  <label>Post:</label>
+  <textarea class="form-control" id="bodyInfo" rows="8" cols="80" name="bodyInfo" ng-model="comm.createData.bodyInfo" required></textarea>
+  <p class="help-block" ng-show="(!regForm.bodyInfo.$pristine && regForm.bodyInfo.$error.required) ||
+    (regForm.$submitted && regForm.bodyInfo.$error.required)">This field is required</p>
+  <br>
+
+  <button class="btn btn-primary" type="submit">Submit</button>
+  <button type="button" name="button" class="btn btn-danger" ng-click="comm.cancelPost();">Cancel</button>
+</form>
+
+<div class="row show-hide-message" ng-show="comm.successMsg">
+  <div class="alert alert-success">{{comm.successMsg}}</div>
+</div>
+
+<br>
+
+<div class="row show-hide-message" ng-show="comm.errorMsg && !comm.hide">
+  <div class="alert alert-danger">{{comm.errorMsg}}</div>
+</div>
+
+<div ng-hide="!comm.hide">
   <div class="panel panel-primary">
 
     <div class="panel-heading">
@@ -23,6 +50,7 @@
     <div class="panel-footer">
       <p><strong>Posted by: </strong>author</p>
       <p><strong>Posted: </strong>date</p>
+      <a href="#"><button type="button" name="button" class="btn btn-sm btn-danger">Delete</button></a>
     </div>
 
     <ul class="list-group">
