@@ -6,6 +6,8 @@
 
 <button type="button" name="button" class="btn btn-warning" ng-click="comm.newPost();" ng-hide="!comm.hide">Create Post</button>
 
+<button type="button" name="button" class="btn btn-warning" ng-click="comm.getPosts();" ng-hide="!comm.hide">Get Posts</button>
+
 <br>
 <br>
 
@@ -36,20 +38,25 @@
   <div class="alert alert-danger">{{comm.errorMsg}}</div>
 </div>
 
+<div class="row show-hide-message" ng-show="comm.errorMess">
+  <div class="alert alert-danger">{{comm.errorMess}}</div>
+</div>
+
+
 <div ng-hide="!comm.hide">
-  <div class="panel panel-primary">
+  <div class="panel panel-primary" ng-repeat="post in recentPosts">
 
     <div class="panel-heading">
-      <h3 class="panel-title">Title</h3>
+      <h3 class="panel-title">{{post.title}}</h3>
     </div>
 
     <div class="panel-body">
-      Yabba dabba doo
+      {{post.bodyInfo}}
     </div>
 
     <div class="panel-footer">
-      <p><strong>Posted by: </strong>author</p>
-      <p><strong>Posted: </strong>date</p>
+      <p><strong>Posted by: </strong>{{post.createdBy}}</p>
+      <p><strong>Posted: </strong>{{post.createdAt}}</p>
       <a href="#"><button type="button" name="button" class="btn btn-sm btn-danger">Delete</button></a>
     </div>
 

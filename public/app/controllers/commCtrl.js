@@ -1,8 +1,18 @@
 angular.module('commController', ['postServices', 'authServices'])
 
-.controller('commCtrl', function($http, $timeout, Post, Auth) {
+.controller('commCtrl', function($http, $timeout, $scope, Post, Auth) {
   var app = this;
   app.hide = true;
+
+  this.getPosts = function() {
+    Post.allPosts().then(function(data) {
+      if (data.data.success) {
+        $scope.recentPosts = data.data.posts;
+      } else {
+        app.errorMess = data.data.message;
+      }
+    });
+  };
 
   this.newPost = function() {
     app.hide = false;
