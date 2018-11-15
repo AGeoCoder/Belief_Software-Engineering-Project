@@ -10,7 +10,7 @@ var app = angular.module('appRoutes', ['ngRoute'])
   .when('/article/:articleID', {
     templateUrl: 'app/views/pages/article.html',
     controller: 'articleCtrl',
-    controllerAs: 'article'
+    //controllerAs: 'article'
   })
   .when('/resources', {
     templateUrl: 'app/views/pages/resources.html',
