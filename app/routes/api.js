@@ -1,4 +1,5 @@
 var User = require('../models/user');
+var Post = require('../models/post');
 var jwt = require('jsonwebtoken');
 // secret used to create session for user after login
 var secret = 'testSecret';
@@ -15,6 +16,55 @@ module.exports = function(router) {
     }
   }
   var client = nodemailer.createTransport(sgTransport(options));
+
+  router.post('/posts', function(req, res) {
+    var post = new Post();
+    // gets info from input and sets it
+    post.title = req.body.title;
+    post.bodyInfo = req.body.bodyInfo;
+    post.createdBy = req.body.createdBy;
+
+    if (req.body.title == null || req.body.title == '' || req.body.bodyInfo == null || req.body.bodyInfo == '') {
+      res.json({success: false, message: 'Ensure, title and body were provided.'});
+    } else {
+      post.save(function(err) {
+        if (err) {
+
+          if (err.errors != null) {
+
+            if (err.errors.title) {
+              res.json({success: false, message: err.errors.title.message});
+            } else if (err.errors.bodyInfo) {
+              res.json({success: false, message: err.errors.bodyInfo.message});
+            } else {
+              res.json({success: false, message: err});
+            }
+
+          } else if (err) {
+            res.json({success: false, message: err});
+          }
+
+        } else {
+          res.json({success: true, message: 'Post created.'});
+        }
+      });
+    }
+  });
+
+  // get all posts in order of most recent
+  router.get('/allPosts', function(req, res) {
+    Post.find({}).sort({'_id': -1}).select().exec(function(err, posts) {
+      if (err) {
+        res.json({success: false, message: err});
+      } else {
+        if (!posts) {
+          res.json({success: false, message: 'No posts found'});
+        } else {
+          res.json({success: true, posts: posts});
+        }
+      }
+    });
+  });
 
   // adds user to database route
   router.post('/users', function(req, res) {
