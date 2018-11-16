@@ -1,5 +1,3 @@
-var app = angular.module('appRoutes', ['ngRoute'])
-
 var router = angular.module('appRoutes', ['ngRoute'])
 
 router.config(function($routeProvider, $locationProvider) {

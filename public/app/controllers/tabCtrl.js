@@ -1,13 +1,15 @@
-angular.module('tabbarController', [])
-.controller('tabbarCtrl',['$scope',function($scope){
+
+app.controller('tabbarCtrl',['$scope',function($scope){
+  $scope.test = 1;
   $scope.options = [
     {
       title: 'Education',
-      link: "/"
+      link: "/",
+      testing: 222
     },
     {
       title: 'Community',
-      link: "#community"
+      link: "/community"
     },
     {
       title: 'Home',

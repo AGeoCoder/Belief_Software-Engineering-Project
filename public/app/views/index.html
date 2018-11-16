@@ -21,42 +21,15 @@
     <title>Belief</title>
   </head>
 
+  <body  ng-controller="primaryCtrl as main">
 
 
+  <tabbar info="test"></tabbar>
 
+  <div ng-controller="eduDropCtrl">
+    <edu-drop></edu-drop>
+  </div>
 
-
-
-
-
-  <!--body  ng-controller="primaryCtrl as main">
-
-
-      <tabbar info=""></tabbar-->
-
-  <body ng-controller="primaryCtrl as primary" ng-show="primary.loadme" ng-cloak>
-    <nav class="navbar" ng-controller="tabbarCtrl" ng-show="primary.loadme" ng-cloak>
-
-      <div class="filter"></div>
-
-        <img class="logo" src="{{logoUrl}}">
-
-
-
-
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav">
-
-            <li ng-repeat="option in options" ng-class="{active: option.title == selected}"><a href="{{option.link}}" ng-click="select(option.title)" >{{option.title | uppercase}}</a></li>
-
-          </ul>
-
-
-
-        </div>
-    <h2 class="slogan">A FANTASTIC SLOGAN HERE</h2>
-
-    </nav>
     <!-- Fixed navbar -->
     <!--nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -78,7 +51,7 @@
       </div>
     </nav-->
 
-    <div class="container theme-showcase" role="main">
+
 
       <!-- Main jumbotron for a primary marketing message or call to action -->
 
@@ -109,6 +82,8 @@
     <script src="app/controllers/articleCtrl.js"></script>
     <script src="app/controllers/tabCtrl.js"></script>
     <script src="app/controllers/trusted.js"></script>
+    <script src="app/controllers/eduDropCtrl.js"></script>
+
 
     <!-- services -->
     <script src="app/services/userServices.js"></script>
@@ -116,12 +91,16 @@
 
     <!-- directives -->
     <script src="app/views/directives/tabbar.js"></script>
+    <script src="app/views/directives/dropdown.js"></script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="assets/js/jquery-3.3.1.min.js"></script>
     <script src="assets/js/bootstrap.js"></script>
+
+
+
   </body>
   <footer>
   </footer>
