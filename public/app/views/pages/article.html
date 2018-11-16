@@ -4,22 +4,30 @@
 
 <h1 ng-hide="article.hide">Article Page</h1>
 
-<!-- Hi -->
+<div ng-controller="articleCtrl">
+  <p><iframe ng-hide="hide" ng-src="{{articleURL | trusted}}" frameborder="0" height="800" width="95%"></iframe></p>
+  <div class="row show-hide-message" ng-hide="!hide">
+    <h1>Trigger Warning</h1>
+    <div class="alert alert-danger">This article contains information about sexual assault and/or violence which may be triggering to survivors.</div>
+    <button type="button" class="btn btn-danger" ng-click="show();">Continue to Article</button>
+  </div>
+</div>
 
-<div id="text">
+<!-- <div id="text">
   <p><iframe ng-hide="article.hide" ng-src="{{article.articleURL | trusted}}" frameborder="0" height="800" width="95%"></iframe></p>
-
   <div class="row show-hide-message" ng-hide="!article.hide">
     <h1>Trigger Warning</h1>
     <div class="alert alert-danger">This article contains information about sexual assault and/or violence which may be triggering to survivors.</div>
     <button type="button" class="btn btn-danger" ng-click="article.show();">Continue to Article</button>
   </div>
+</div> -->
+
+<div ng-hide="hide">
+  <h1>
+    Related Articles
+  </h1>
+    <a href={{relatedURL}}>{{relatedTitle}}</a>
 </div>
-<!--
-<div id="text">
-  <p><iframe src="https://cdn.rawgit.com/amgreenstreet/BeliefMeToo/master/public/articles/Intimate_Partner_Sexual_Violence.txt"
-    frameborder="0" height="800" width="95%"></iframe></p>
-</div>
--->
+
 </body>
 </html>

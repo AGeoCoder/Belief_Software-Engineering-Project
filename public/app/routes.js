@@ -1,6 +1,7 @@
 var router = angular.module('appRoutes', ['ngRoute'])
 
 router.config(function($routeProvider, $locationProvider) {
+
   // when user enters .com/, site sends them to education.html
   $routeProvider
   .when('/', {
@@ -10,7 +11,7 @@ router.config(function($routeProvider, $locationProvider) {
   .when('/article/:articleID', {
     templateUrl: 'app/views/pages/article.html',
     controller: 'articleCtrl',
-    controllerAs: 'article'
+    //controllerAs: 'article'
   })
   .when('/resources', {
     templateUrl: 'app/views/pages/resources.html',
