@@ -1,7 +1,6 @@
-var router = angular.module('appRoutes', ['ngRoute'])
+var app = angular.module('appRoutes', ['ngRoute'])
 
-router.config(function($routeProvider, $locationProvider) {
-
+.config(function($routeProvider, $locationProvider) {
   // when user enters .com/, site sends them to education.html
   $routeProvider
   .when('/', {
@@ -12,8 +11,6 @@ router.config(function($routeProvider, $locationProvider) {
     templateUrl: 'app/views/pages/article.html',
     controller: 'articleCtrl',
     //controllerAs: 'article'
-
-
   })
   .when('/resources', {
     templateUrl: 'app/views/pages/resources.html',
@@ -84,17 +81,17 @@ router.config(function($routeProvider, $locationProvider) {
 });
 
 // for every main view, check to see if you need to be logged in to view and redirect to education if not logged in
-router.run(['$rootScope', 'Auth', '$location', function($rootScope, Auth, $location) {
+app.run(['$rootScope', 'Auth', '$location', function($rootScope, Auth, $location) {
 
   $rootScope.$on('$routeChangeStart', function(event, next, current) {
 
     if (next.$$route.authenticated == true) {
-      if (!Auth.isLoggedIn) {
+      if (!Auth.isLoggedIn()) {
         event.preventDefault();
         $location.path('/login');
       }
     } else if (next.$$route.authenticated == false) {
-      if(Auth.isLoggedIn) {
+      if(Auth.isLoggedIn()) {
         event.preventDefault();
         $location.path('/');
       }
