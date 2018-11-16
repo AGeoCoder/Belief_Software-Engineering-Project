@@ -1,6 +1,7 @@
-var app = angular.module('appRoutes', ['ngRoute'])
+var router = angular.module('appRoutes', ['ngRoute'])
 
-.config(function($routeProvider, $locationProvider) {
+router.config(function($routeProvider, $locationProvider) {
+
   // when user enters .com/, site sends them to education.html
   $routeProvider
   .when('/', {
