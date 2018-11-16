@@ -21,25 +21,12 @@
     <title>Belief</title>
   </head>
 
-
-
-
-  <!--body  ng-controller="primaryCtrl as main">
-
-
-      <tabbar info=""></tabbar-->
-
   <body ng-controller="primaryCtrl as primary" ng-show="primary.loadme" ng-cloak>
     <nav class="navbar" ng-controller="tabbarCtrl" ng-show="primary.loadme" ng-cloak>
 
-  <!--body  ng-controller="primaryCtrl as main">
+      <div class="filter"></div>
 
-
-  <tabbar info="test"></tabbar>
-
-  <div ng-controller="eduDropCtrl">
-    <edu-drop></edu-drop>
-  </div-->
+        <img class="logo" src="{{logoUrl}}">
 
 
         <div id="navbar" class="navbar-collapse collapse">
@@ -54,18 +41,7 @@
             <li><a ng-show="!primary.isLoggedIn" href="/login">Login</a></li>
             <li><a ng-show="primary.isLoggedIn" href="#" ng-click="primary.logout();">Logout</a></li>
             <li><a ng-show="!primary.isLoggedIn" href="/createuser">Create New User</a></li>
-            <!--li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li-->
+
 
           </ul>
 
@@ -76,30 +52,8 @@
 
     </nav>
     <!-- Fixed navbar -->
-    <!--nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <img class="logo" src="{{logoUrl}}">
-          <a class="navbar-brand" href="#">Belief the #MeToo Website</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Education</a></li>
-            <li><a href="/community">Community</a></li>
-            <li><a href="/reports">Reports</a></li>
-            <li><a href="/main">Main Page</a></li>
-            <li><a href="/history">History Page</a></li>
-            <li><a ng-show="!primary.isLoggedIn" href="/login">Login</a></li>
-            <li><a ng-show="primary.isLoggedIn" href="#" ng-click="primary.logout();">Logout</a></li>
-            <li><a href="/createuser">Create New User</a></li>
-          </ul>
-        </div></.nav-collapse >
-      </div>
-    </nav-->
 
-
-
-      <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="container theme-showcase" role="main">
 
 
 
@@ -116,8 +70,6 @@
     <!-- Footer -->
 
 
-
-
     <!-- modules -->
     <script src="app/app.js"></script>
     <script src="app/routes.js"></script>
@@ -131,7 +83,6 @@
     <script src="app/controllers/eduDropCtrl.js"></script>
     <script src="app/controllers/emailCtrl.js"></script>
     <script src="app/controllers/commCtrl.js"></script>
-
 
     <!-- services -->
     <script src="app/services/userServices.js"></script>
@@ -147,9 +98,6 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="assets/js/jquery-3.3.1.min.js"></script>
     <script src="assets/js/bootstrap.js"></script>
-
-
-
   </body>
   <footer>
   </footer>
