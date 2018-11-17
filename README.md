@@ -17,6 +17,28 @@ To start:
 8. To shut everything down, enter ctrl+c in the bash you ran node server.js in and enter net stop 'MongoDB' in the cmd
    with mongo running
 
+To set up testing:
+1. Install the Karma tool via the NPM package manager with command 'npm install karma --save-dev'
+2. Install karma-cli with command 'npm install -g karma-cli'
+3. Install karma plug-ins to enable us to use the Jasmine test framework and Google Chrome as the target browser with the command 'npm install karma-jasmine karma-chrome-launcher --save-dev'
+4. Configure the test using the step by step wizard with command 'karma init karma.conf.js'
+5. Run tests using the command 'karma start karma.conf.js'
+6. Optionally, set up code coverage analysis with the command 'npm install karma karma-coverage'
+7. Ensure your karma.conf.js file has files listed in the following order:
+```
+files: [
+  'public/assets/js/angular.js',
+  'public/assets/js/angular-*.js',
+  'public/app/app.js',
+  'public/app/routes.js',
+  'public/app/controllers/*.js',
+  'public/app/services/*.js',
+  'test/test/*.js'
+],
+```
+
+
+Reference
 
 Login and user creation references:
 http://jasonwatmore.com/post/2015/12/09/mean-stack-user-registration-and-login-example-tutorial#services-user-service
