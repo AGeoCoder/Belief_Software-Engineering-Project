@@ -8,6 +8,10 @@ angular.module('postServices', [])
     return $http.post('/api/posts', createData);
   }
 
+  postFactory.commentCreate = function(commentData) {
+    return $http.post('/api/comment', commentData);
+  }
+
   postFactory.allPosts = function() {
     return $http.get('/api/allPosts');
   }

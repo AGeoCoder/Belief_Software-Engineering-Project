@@ -51,6 +51,44 @@ module.exports = function(router) {
     }
   });
 
+  router.post('/comment', function(req, res) {
+    if (!req.body.comment || !req.body.commentor) {
+      res.json({success: false, message: 'No comment provided'});
+    } else {
+
+      if (!req.body.id) {
+        res.json({success: false, message: 'No id provided'});
+      } else {
+
+        Post.findOne({_id: req.body.id}).select().exec(function(err, post) {
+
+          if (err) {
+            res.json({success: false, message: 'Invalid post id'});
+          } else {
+            if (!post) {
+              res.json({success: false, message: 'Post not found'});
+            } else {
+              post.comments.push({
+                comment: req.body.comment,
+                commentor: req.body.commentor
+              });
+              post.save(function(err) {
+                if (err) {
+                  res.json({success: false, message: 'Comment not saved'});
+                } else {
+                  res.json({success: true, message: 'Comment saved'});
+                }
+              });
+            }
+          }
+
+        });
+
+      }
+
+    }
+  });
+
   // get all posts in order of most recent
   router.get('/allPosts', function(req, res) {
     Post.find({}).sort({'_id': -1}).select().exec(function(err, posts) {

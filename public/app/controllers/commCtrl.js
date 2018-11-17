@@ -1,8 +1,9 @@
-angular.module('commController', ['postServices', 'authServices'])
+angular.module('commController', ['postServices', 'authServices', 'primaryController'])
 
-.controller('commCtrl', function($http, $timeout, $scope, Post, Auth) {
+.controller('commCtrl', function($http, $location, $scope, Post, Auth) {
   var app = this;
   app.hide = true;
+  this.newComment = [];
 
   this.getPosts = function() {
     Post.allPosts().then(function(data) {
@@ -16,6 +17,41 @@ angular.module('commController', ['postServices', 'authServices'])
 
   this.newPost = function() {
     app.hide = false;
+  };
+
+  this.draftComment = function(id) {
+    this.newComment = [];
+    this.newComment.push(id);
+  };
+
+  this.cancelComment = function() {
+    this.newComment = [];
+  };
+
+  this.createComment = function(commentData) {
+    app.commentError = false;
+
+    if (!Auth.isLoggedIn()) {
+      app.commentError = 'You must be logged in to create a comment';
+      return;
+    }
+
+    Auth.getUser().then(function(data) {
+      app.commentData.commentor = data.data.name;
+      app.commentData.id = app.newComment[0];
+
+      Post.commentCreate(app.commentData).then(function(data) {
+        if (data.data.success) {
+          // show success Message
+          //app.successMsg = data.data.message;
+          app.cancelComment();
+          app.getPosts();
+        } else {
+          // show error message
+          app.commentError = data.data.message;
+        }
+      });
+    });
   };
 
   this.cancelPost = function() {
@@ -33,22 +69,22 @@ angular.module('commController', ['postServices', 'authServices'])
     }
 
     Auth.getUser().then(function(data) {
-      // makes name and email accessible through primary.name
       app.createData.createdBy = data.data.name;
-    });
 
-    Post.create(app.createData).then(function(data) {
-      if (data.data.success) {
-        // show success Message
-        //app.successMsg = data.data.message;
-        app.hide = true;
-        document.getElementById('title').value = '';
-        document.getElementById('bodyInfo').value = '';
-      } else {
-        app.loading = false;
-        // show error message
-        app.errorMsg = data.data.message;
-      }
+      Post.create(app.createData).then(function(data) {
+        if (data.data.success) {
+          // show success Message
+          //app.successMsg = data.data.message;
+          app.hide = true;
+          document.getElementById('title').value = '';
+          document.getElementById('bodyInfo').value = '';
+        } else {
+          // show error message
+          app.errorMsg = data.data.message;
+        }
+      });
     });
   };
+
+  app.getPosts();
 });

@@ -6,7 +6,7 @@
 
 <button type="button" name="button" class="btn btn-warning" ng-click="comm.newPost();" ng-hide="!comm.hide">Create Post</button>
 
-<button type="button" name="button" class="btn btn-warning" ng-click="comm.getPosts();" ng-hide="!comm.hide">Get Posts</button>
+<button type="button" name="button" class="btn btn-warning" ng-click="comm.getPosts();" ng-hide="!comm.hide">Refresh Posts</button>
 
 <br>
 <br>
@@ -56,21 +56,41 @@
 
     <div class="panel-footer">
       <p><strong>Posted by: </strong>{{post.createdBy}}</p>
-      <p><strong>Posted: </strong>{{post.createdAt}}</p>
-      <a href="#"><button type="button" name="button" class="btn btn-sm btn-danger">Delete</button></a>
+      <p><strong>Posted: </strong>{{post.createdAt | date: 'MMM dd, yyyy'}}</p>
     </div>
 
     <ul class="list-group">
       <li class="list-group-item">
-        <button type="button" name="button" class="btn btn-sm btn-warning" ng-click="comm.createComment()">Comment</button>
+        <button type="button" name="button" class="btn btn-sm btn-warning" ng-click="comm.draftComment(post._id)">Comment</button>
         <br/>
 
-        <!--<form>
-          <textarea name="comment" rows="10" cols="30" class="form-control"></textarea>
-          <button type="button" name="button" class="btn btn-sm btn-info">Submit</button>
-          <button type="button" name="button" class="btn btn-sm btn-info">Cancel</button>
-        </form> -->
+        <div ng-show="comm.newComment.indexOf(post._id) > -1">
+          <br>
+          <form name="commentForm" id="commentForm" ng-submit="comm.createComment(commentData);">
+            <textarea class="form-control" id="commentBody" rows="8" cols="80" name="commentBody" ng-model="comm.commentData.comment" required></textarea>
+            <p class="help-block" ng-show="(!commentForm.commentBody.$pristine && commentForm.commentBody.$error.required) ||
+              (commentForm.$submitted && commentForm.commentBody.$error.required)">This field is required</p>
+
+            <br>
+
+            <button class="btn btn-primary" type="submit">Submit</button>
+            <button type="button" name="button" class="btn btn-danger" ng-click="comm.cancelComment();">Cancel</button>
+
+            <br>
+            <br>
+
+            <div class="row show-hide-message" ng-show="comm.commentError">
+              <div class="alert alert-danger">{{comm.commentError}}</div>
+            </div>
+
+          </form>
+        </div>
       </li>
     </ul>
+
+    <li class="list-group-item" ng-repeat="comment in post.comments">
+      <strong>{{comment.commentor}}:</strong> {{comment.comment}}
+    </li>
+
   </div>
 </div>
