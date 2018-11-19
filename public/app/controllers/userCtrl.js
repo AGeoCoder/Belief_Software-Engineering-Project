@@ -33,14 +33,17 @@ angular.module('userControllers', ['userServices'])
     controller: function($scope) {
 
       $scope.confirmed = false;
+      document.getElementById("createButton").disabled = true;
 
       $scope.doConfirm = function(values) {
         values.forEach(function(ele) {
 
           if ($scope.confirm == ele) {
             $scope.confirmed = true;
+            document.getElementById("createButton").disabled = false;
           } else {
             $scope.confirmed = false;
+            document.getElementById("createButton").disabled = true;
           }
         });
       }
