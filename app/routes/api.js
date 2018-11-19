@@ -104,6 +104,21 @@ module.exports = function(router) {
     });
   });
 
+  // get four most recent posts for main page
+  router.get('/recentPosts', function(req, res) {
+    Post.find({}).sort({'_id': -1}).limit(4).select().exec(function(err, posts) {
+      if (err) {
+        res.json({success: false, message: err});
+      } else {
+        if (!posts) {
+          res.json({success: false, message: 'No posts found'});
+        } else {
+          res.json({success: true, posts: posts});
+        }
+      }
+    });
+  });
+
   // adds user to database route
   router.post('/users', function(req, res) {
     var user = new User();

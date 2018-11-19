@@ -19,6 +19,8 @@ var app = angular.module('appRoutes', ['ngRoute'])
   // Main
   .when('/main', {
     templateUrl: 'app/views/pages/main.html',
+    controller: 'mainCtrl',
+    controllerAs: 'main',
     authenticated: true
   })
 
