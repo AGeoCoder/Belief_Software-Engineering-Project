@@ -26,6 +26,8 @@ var app = angular.module('appRoutes', ['ngRoute'])
 
   .when('/history', {
     templateUrl: 'app/views/pages/history.html',
+    controller: 'historyCtrl',
+    controllerAs: 'history',
     authenticated: true
   })
 

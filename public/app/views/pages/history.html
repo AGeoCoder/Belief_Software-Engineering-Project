@@ -1,3 +1,28 @@
+<h1>History</h1>
+
 <div class="page-header">
-  <h1>Hello {{primary.name}} from history</h1>
+  <h2><a href="/community">Your Posts</a></h2>
+</div>
+
+<div>
+  <div class="panel panel-primary" ng-repeat="post in recentPosts">
+
+    <div class="panel-heading">
+      <h3 class="panel-title">{{post.title}}</h3>
+    </div>
+
+    <div class="panel-body">
+      {{post.bodyInfo}}
+    </div>
+
+    <div class="panel-footer">
+      <p><strong>Posted by: </strong>{{post.createdBy}}</p>
+      <p><strong>Posted: </strong>{{post.createdAt | date: 'MMM dd, yyyy'}}</p>
+    </div>
+
+    <li class="list-group-item" ng-repeat="comment in post.comments">
+      <strong>{{comment.commentor}}:</strong> {{comment.comment}}
+    </li>
+
+  </div>
 </div>

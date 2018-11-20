@@ -20,5 +20,9 @@ angular.module('postServices', [])
     return $http.get('/api/recentPosts');
   }
 
+  postFactory.myPosts = function() {
+    return $http.get('/api/myPosts');
+  }
+
   return postFactory;
 });

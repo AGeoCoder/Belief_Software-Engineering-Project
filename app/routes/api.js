@@ -296,5 +296,27 @@ module.exports = function(router) {
     res.send(req.decoded);
   });
 
+  // get specific user's posts for history page
+  router.get('/myPosts', function(req, res) {
+    User.findOne({email: req.decoded.email}).select().exec(function(err, user) {
+      if (err) throw err;
+      if(!user) {
+        res.json({success: false, message: 'Email was not found'});
+      } else {
+        Post.find({createdBy: user.name}).sort({'_id': -1}).select().exec(function(err, posts) {
+          if (err) {
+            res.json({success: false, message: err});
+          } else {
+            if (!posts) {
+              res.json({success: false, message: 'No posts found'});
+            } else {
+              res.json({success: true, posts: posts});
+            }
+          }
+        });
+      }
+    });
+  });
+
   return router;
 }
