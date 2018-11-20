@@ -20,6 +20,35 @@
       <p><strong>Posted: </strong>{{post.createdAt | date: 'MMM dd, yyyy'}}</p>
     </div>
 
+    <ul class="list-group">
+      <li class="list-group-item">
+        <button type="button" name="button" class="btn btn-sm btn-warning" ng-click="history.draftComment(post._id)">Comment</button>
+        <br/>
+
+        <div ng-show="history.newComment.indexOf(post._id) > -1">
+          <br>
+          <form name="commentForm" id="commentForm" ng-submit="history.createComment(commentData);">
+            <textarea class="form-control" id="commentBody" rows="8" cols="80" name="commentBody" ng-model="history.commentData.comment" required></textarea>
+            <p class="help-block" ng-show="(!commentForm.commentBody.$pristine && commentForm.commentBody.$error.required) ||
+              (commentForm.$submitted && commentForm.commentBody.$error.required)">This field is required</p>
+
+            <br>
+
+            <button class="btn btn-primary" type="submit">Submit</button>
+            <button type="button" name="button" class="btn btn-danger" ng-click="history.cancelComment();">Cancel</button>
+
+            <br>
+            <br>
+
+            <div class="row show-hide-message" ng-show="comm.commentError">
+              <div class="alert alert-danger">{{history.commentError}}</div>
+            </div>
+
+          </form>
+        </div>
+      </li>
+    </ul>
+
     <li class="list-group-item" ng-repeat="comment in post.comments">
       <strong>{{comment.commentor}}:</strong> {{comment.comment}}
     </li>
