@@ -1,8 +1,36 @@
 angular.module('historyController', ['postServices', 'authServices'])
 
-.controller('historyCtrl', function($http, $location, $scope, Post, Auth) {
+.controller('historyCtrl', function($http, $location, $scope, $timeout, Post, Auth, User) {
   var app = this;
   this.newComment = [];
+  app.delete = false;
+
+  this.deleteWindow = function() {
+    app.delete = true;
+  };
+
+  this.cancelDelete = function() {
+    app.delete = false;
+  };
+
+  this.deleteAccount = function() {
+    app.error = false;
+
+    User.delete().then(function(data) {
+      if (data.data.success) {
+        app.success = data.data.message;
+
+        // logout user
+        Auth.logout();
+        $timeout(function() {
+          $location.path('/');
+        }, 2000);
+      } else {
+        // show error message
+        app.error = data.data.message;
+      }
+    });
+  };
 
   this.getPosts = function() {
     Post.myPosts().then(function(data) {

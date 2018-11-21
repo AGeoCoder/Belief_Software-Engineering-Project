@@ -318,5 +318,29 @@ module.exports = function(router) {
     });
   });
 
+  router.delete('/delete', function(req, res) {
+    User.findOne({email: req.decoded.email}).select().exec(function(err, user) {
+      if (err) throw err;
+      if(!user) {
+        res.json({success: false, message: 'Email was not found'});
+      } else {
+        Post.find({createdBy: user.name}).select().exec(function(err, posts) {
+          if (posts) {
+            for (var i = 0; i < posts.length; i++) {
+              posts[i].remove();
+            }
+          }
+        });
+        user.remove(function(err) {
+          if (err) {
+            throw err;
+          } else {
+            res.json({success: true, message: 'Account deleted. Logging out...'});
+          }
+        });
+      }
+    });
+  });
+
   return router;
 }

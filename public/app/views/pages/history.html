@@ -1,4 +1,26 @@
+<div ng-show="history.delete">
+  <h1>Are you sure you want to delete your account?</h1>
+  <br>
+  <br>
+  <button type="button" name="button" class="btn btn-danger" ng-click="history.deleteAccount();">Yes, Delete Account</button>
+  <button type="button" name="button" class="btn btn-primary" ng-click="history.cancelDelete();">No, Don't Delete Account</button>
+  <br>
+  <br>
+
+  <div class="row show-hide-message" ng-show="history.error">
+    <div class="alert alert-danger">{{history.error}}</div>
+  </div>
+
+  <div class="row show-hide-message" ng-show="history.success">
+    <div class="alert alert-success">{{history.success}}</div>
+  </div>
+</div>
+
+<div ng-show="!history.delete">
+
 <h1>History</h1>
+
+<button type="button" name="button" class="btn btn-danger" ng-click="history.deleteWindow();">Delete Account</button>
 
 <div class="page-header">
   <h2><a href="/community">Your Posts</a></h2>
@@ -40,7 +62,7 @@
             <br>
             <br>
 
-            <div class="row show-hide-message" ng-show="comm.commentError">
+            <div class="row show-hide-message" ng-show="history.commentError">
               <div class="alert alert-danger">{{history.commentError}}</div>
             </div>
 
@@ -54,4 +76,5 @@
     </li>
 
   </div>
+</div>
 </div>
