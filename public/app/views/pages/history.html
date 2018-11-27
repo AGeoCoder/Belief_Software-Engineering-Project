@@ -1,3 +1,80 @@
+<div ng-show="history.delete">
+  <h1>Are you sure you want to delete your account?</h1>
+  <br>
+  <br>
+  <button type="button" name="button" class="btn btn-danger" ng-click="history.deleteAccount();">Yes, Delete Account</button>
+  <button type="button" name="button" class="btn btn-primary" ng-click="history.cancelDelete();">No, Don't Delete Account</button>
+  <br>
+  <br>
+
+  <div class="row show-hide-message" ng-show="history.error">
+    <div class="alert alert-danger">{{history.error}}</div>
+  </div>
+
+  <div class="row show-hide-message" ng-show="history.success">
+    <div class="alert alert-success">{{history.success}}</div>
+  </div>
+</div>
+
+<div ng-show="!history.delete">
+
+<h1>History</h1>
+
+<button type="button" name="button" class="btn btn-danger" ng-click="history.deleteWindow();">Delete Account</button>
+
 <div class="page-header">
-  <h1>Hello {{primary.name}} from history</h1>
+  <h2><a href="/community">Your Posts</a></h2>
+</div>
+
+<div>
+  <div class="panel panel-primary" ng-repeat="post in recentPosts">
+
+    <div class="panel-heading">
+      <h3 class="panel-title">{{post.title}}</h3>
+    </div>
+
+    <div class="panel-body">
+      {{post.bodyInfo}}
+    </div>
+
+    <div class="panel-footer">
+      <p><strong>Posted by: </strong>{{post.createdBy}}</p>
+      <p><strong>Posted: </strong>{{post.createdAt | date: 'MMM dd, yyyy'}}</p>
+    </div>
+
+    <ul class="list-group">
+      <li class="list-group-item">
+        <button type="button" name="button" class="btn btn-sm btn-warning" ng-click="history.draftComment(post._id)">Comment</button>
+        <br/>
+
+        <div ng-show="history.newComment.indexOf(post._id) > -1">
+          <br>
+          <form name="commentForm" id="commentForm" ng-submit="history.createComment(commentData);">
+            <textarea class="form-control" id="commentBody" rows="8" cols="80" name="commentBody" ng-model="history.commentData.comment" required></textarea>
+            <p class="help-block" ng-show="(!commentForm.commentBody.$pristine && commentForm.commentBody.$error.required) ||
+              (commentForm.$submitted && commentForm.commentBody.$error.required)">This field is required</p>
+
+            <br>
+
+            <button class="btn btn-primary" type="submit">Submit</button>
+            <button type="button" name="button" class="btn btn-danger" ng-click="history.cancelComment();">Cancel</button>
+
+            <br>
+            <br>
+
+            <div class="row show-hide-message" ng-show="history.commentError">
+              <div class="alert alert-danger">{{history.commentError}}</div>
+            </div>
+
+          </form>
+        </div>
+      </li>
+    </ul>
+
+    <li class="list-group-item" ng-repeat="comment in post.comments">
+      <strong>{{comment.commentor}}:</strong> {{comment.comment}}
+    </li>
+
+  </div>
+</div>
 </div>

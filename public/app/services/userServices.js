@@ -12,6 +12,10 @@ angular.module('userServices', [])
     return $http.put('/api/resetpassword', resetData);
   }
 
+  userFactory.delete = function() {
+    return $http.delete('/api/delete');
+  }
+
   userFactory.resetUser = function(token) {
     return $http.get('/api/resetpassword/' + token);
   }

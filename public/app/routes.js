@@ -19,11 +19,15 @@ var app = angular.module('appRoutes', ['ngRoute'])
   // Main
   .when('/main', {
     templateUrl: 'app/views/pages/main.html',
+    controller: 'mainCtrl',
+    controllerAs: 'main',
     authenticated: true
   })
 
   .when('/history', {
     templateUrl: 'app/views/pages/history.html',
+    controller: 'historyCtrl',
+    controllerAs: 'history',
     authenticated: true
   })
 
