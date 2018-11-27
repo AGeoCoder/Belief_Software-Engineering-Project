@@ -72,8 +72,7 @@ var app = angular.module('appRoutes', ['ngRoute'])
   .when('/logout', {
     templateUrl: 'app/views/pages/users/logout.html',
     controller: 'primaryCtrl',
-    controllerAs: 'primary',
-    authenticated: true
+    controllerAs: 'primary'
   })
 
   .otherwise({redirectTo: '/'});
