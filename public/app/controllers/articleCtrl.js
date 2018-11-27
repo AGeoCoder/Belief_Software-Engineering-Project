@@ -14,6 +14,11 @@ angular.module('articleController', [])
       $scope.relatedURL = '/article/Intimate_Partner_Sexual_Violence'
       $scope.relatedTitle = 'Intimate Partner Sexual Violence'
     }
+    if ($scope.articleID == "Depression") {
+      $scope.articleURL = 'https://cdn.rawgit.com/amgreenstreet/BeliefMeToo/master/public/articles/' + $routeParams.articleID + '.rtf';
+      $scope.relatedURL = '/article/Drepression'
+      $scope.relatedTitle = 'Intimate Partner Sexual Violence'
+    }
     $scope.show = function(createData, confirmed) {
       $scope.hide = false;
     };
