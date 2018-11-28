@@ -4,7 +4,7 @@ angular.module('articleController', [])
   $scope.greeting = 'Hola!';
   $scope.hide = false;
   $scope.articleID = $routeParams.articleID;
-  if ($scope.articleID == "Intimate_Partner_Sexual_Violence") app.hide = true;
+  if ($scope.articleID == "Intimate_Partner_Sexual_Violence") $scope.hide = true;
     $scope.articleURL = 'https://cdn.rawgit.com/amgreenstreet/BeliefMeToo/master/public/articles/' + $routeParams.articleID + '.txt';
     if ($scope.articleID == "Intimate_Partner_Sexual_Violence") {
       $scope.relatedURL = '/article/What_is_sexual_assault'
