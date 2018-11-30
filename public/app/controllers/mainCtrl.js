@@ -2,7 +2,7 @@ angular.module('mainController', ['postServices'])
 
 .controller('mainCtrl', function($http, $location, $scope, Post, Auth) {
   var app = this;
-  app.articleURL = 'https://cdn.rawgit.com/amgreenstreet/BeliefMeToo/master/public/articles/What_is_sexual_assault.txt';
+  app.articleURL = 'https://cdn.rawgit.com/amgreenstreet/BeliefMeToo/master/public/articles/What_is_sexual_assault.html';
 
   this.getPosts = function() {
     Post.recentPosts().then(function(data) {
