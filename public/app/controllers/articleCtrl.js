@@ -41,18 +41,18 @@ angular.module('articleController', [])
     }
     if ($scope.articleID == "Wisconsin") {
       //$scope.articleURL = 'https://cdn.rawgit.com/amgreenstreet/BeliefMeToo/master/public/articles/' + $routeParams.articleID + '.rtf';
-      $scope.relatedURL = '/article/Drepression'
-      $scope.relatedTitle = 'Intimate Partner Sexual Violence'
+      // $scope.relatedURL = '/article/Wisconsin'
+      // $scope.relatedTitle = 'Intimate Partner Sexual Violence'
     }
     if ($scope.articleID == "Illinois") {
       //$scope.articleURL = 'https://cdn.rawgit.com/amgreenstreet/BeliefMeToo/master/public/articles/' + $routeParams.articleID + '.rtf';
-      $scope.relatedURL = '/article/Drepression'
-      $scope.relatedTitle = 'Intimate Partner Sexual Violence'
+      // $scope.relatedURL = '/article/Drepression'
+      // $scope.relatedTitle = 'Intimate Partner Sexual Violence'
     }
     if ($scope.articleID == "Minnesota") {
       //$scope.articleURL = 'https://cdn.rawgit.com/amgreenstreet/BeliefMeToo/master/public/articles/' + $routeParams.articleID + '.rtf';
-      $scope.relatedURL = '/article/Drepression'
-      $scope.relatedTitle = 'Intimate Partner Sexual Violence'
+      // $scope.relatedURL = '/article/Drepression'
+      // $scope.relatedTitle = 'Intimate Partner Sexual Violence'
     }
     $scope.show = function(createData, confirmed) {
       $scope.hide = false;
