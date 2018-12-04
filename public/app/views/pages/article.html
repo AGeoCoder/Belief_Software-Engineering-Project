@@ -2,10 +2,11 @@
 <html>
 <body>
 
+<div class="articleContainer">
 <h1 ng-hide="article.hide">{{title}}</h1>
 
-<div ng-controller="articleCtrl">
-  <p><iframe ng-hide="hide" ng-src="{{articleURL | trusted}}" frameborder="0" height="800" width="95%"></iframe></p>
+<div class="article-text" ng-controller="articleCtrl">
+  <p><iframe id="textBox" ng-hide="hide" ng-src="{{articleURL | trusted}}" frameborder="0" height="800" width="95%"></iframe></p>
   <div class="row show-hide-message" ng-hide="!hide">
     <h1>Trigger Warning</h1>
     <div class="alert alert-danger">This article contains information about sexual assault and/or violence which may be triggering to survivors.</div>
@@ -28,6 +29,11 @@
   </h1>
     <a href={{relatedURL}}>{{relatedTitle}}</a>
 </div>
+</div>
+
+<script>
+
+</script>
 
 </body>
 </html>

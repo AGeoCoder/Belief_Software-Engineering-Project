@@ -1,0 +1,9 @@
+.btn-warning {
+    color: #fff;
+    background-color: rgb(225,119,115);
+    border-color: rgb(225,119,115);
+}
+
+.btn{
+  touch-action: none;
+}

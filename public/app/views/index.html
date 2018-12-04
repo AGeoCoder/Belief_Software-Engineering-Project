@@ -12,13 +12,21 @@
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="assets/css/customize/global.css">
     <link rel="stylesheet" type="text/css" href="assets/css/customize/tabbar.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/customize/education.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/customize/article.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/customize/community.css">
     <link rel="stylesheet" type="text/css" href="assets/fonts/NeutraText/stylesheet.css">
+
+
 
     <script src="assets/js/angular.js"></script>
     <script src="assets/js/angular-route.js"></script>
 
 
     <title>Belief</title>
+
+    <script src="assets/js/jquery-3.3.1.min.js"></script>
+
   </head>
 
   <body ng-controller="primaryCtrl as primary" ng-show="primary.loadme" ng-cloak>
@@ -59,12 +67,25 @@
 
       <!-- Injects specific view onto page, for expample main.html for /main -->
       <div ng-view></div>
-
+  </div>
 
     <!-- Footer -->
     <footer class="page-footer font-small blue">
-      <div class="footer-copyright text-center py-3">Contact the #BeliefMeToo team at PAVE: <br>
-        <p>333 East Campus Mall, #3147 Madison, WI 53715 | chair.pave@gmail.com | 608-890-2139</p>
+      <div class="footer-section">
+        <div class="footer-group">
+          <p class="footer-text">Contact the #BeliefMeToo team at PAVE: </p>
+        </div>
+
+        <div class="footer-group">
+          <p class="footer-text">333 East Campus Mall</p>
+          <p class="footer-text">#3147 Madison</p>
+          <p class="footer-text">WI 53715</p>
+        </div>
+
+        <div class="footer-group">
+          <p class="footer-text">chair.pave@gmail.com</p>
+          <p class="footer-text">608-890-2139</p>
+        </div>
       </div>
     </footer>
     <!-- Footer -->
@@ -85,7 +106,7 @@
     <script src="app/controllers/commCtrl.js"></script>
     <script src="app/controllers/mainCtrl.js"></script>
     <script src="app/controllers/historyCtrl.js"></script>
-
+    <script src="app/controllers/animationCtrl.js"></script>
     <!-- services -->
     <script src="app/services/userServices.js"></script>
     <script src="app/services/postServices.js"></script>
@@ -95,11 +116,18 @@
     <script src="app/views/directives/tabbar.js"></script>
     <script src="app/views/directives/dropdown.js"></script>
 
+
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="assets/js/jquery-3.3.1.min.js"></script>
+
     <script src="assets/js/bootstrap.js"></script>
+
+    <!-- animations -->
+    <script src="app/animation/education.js"></script>
+
+
   </body>
   <footer>
   </footer>

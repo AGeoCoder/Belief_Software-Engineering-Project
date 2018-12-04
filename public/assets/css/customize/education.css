@@ -1,0 +1,77 @@
+.blocks{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.block{
+
+  width:24.5%;
+  height:15.87%;
+  border:0;
+  margin-bottom:17%;
+  position:relative;
+}
+
+.quest{
+  position: absolute;
+  z-index: 1;
+  font-size: 18px;
+  color: white;
+  bottom:-18vh;
+  left: 10%;
+  right: 20%;
+
+
+}
+
+.child-block > .photo{
+  filter: grayscale(1.0);
+}
+
+.child-block > .quest{
+  opacity: 0;
+  transition: opacity 0.5s linear;
+}
+
+.photo{
+  width:100%;
+  position: absolute;
+  z-index: -1;
+}
+
+.color-filter{
+  opacity: 0.4;
+  position: absolute;
+  width:100%;
+  z-index: 0;
+  transition: opacity 0.3s;
+}
+
+.child-block > .color-filter{
+  opacity: 0.27;
+}
+
+a:hover, a:focus {
+    color: white;
+    text-decoration: none;
+}
+
+.active {
+  opacity:0.6;
+}
+
+.child-block > .childText{
+  opacity: 1;
+
+  transition: opacity 0.5s linear;
+}
+
+.page-header{
+  border-bottom: none;
+}
+
+.heading{
+  margin-bottom: 6vh;
+}

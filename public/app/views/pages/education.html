@@ -1,77 +1,96 @@
 
-<div class="page-header">
-  <h1>Welcome {{primary.name}} to Education</h1>
-  <div class="panel-group" id="accordion">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-        Types of sexual assault</a>
-        </h4>
+<div class="page-header" ng-controller="animationController">
+  <h1 class="heading">Welcome to Education</h1>
+    <div class="blocks">
+      <div class="block parent-block" >
+          <img class="color-filter" src="../../../assets/img/education/17.png" ng-class="{'active': isActive_1}" ng-mouseover="showUp_1()" ng-mouseleave="showUp_1()">
+          <img class="photo" src="../../../assets/img/education/1.png">
+          <a class="quest" data-toggle="collapse" data-parent="#accordion" href="#collapse1" ng-mouseover="showUp_1()" ng-mouseleave="showUp_1()">Types of sexual assault</a>
+
       </div>
-      <div id="collapse1" class="panel-collapse collapse">
-        <ul class="list-group">
-          <li class="list-group-item"><a href="/article/What_is_sexual_assault">What is sexual assault?</a></li>
-          <li class="list-group-item"><a href="/article/Intimate_Partner_Sexual_Violence">Intimate Partner Sexual Violence</a></li>
-        </ul>
+      <div class="block child-block" ng-mouseover="showUp_1()" ng-mouseleave="showUp_1()">
+          <img class="color-filter" src="../../../assets/img/education/17.png">
+          <img class="photo" src="../../../assets/img/education/2.png">
+          <a class="quest" href="/article/What_is_sexual_assault"  ng-class="{'childText': showSelf_1}" ng-mouseover="showUp_1()" ng-mouseleave="showUp_1()" >What is sexual assault?</a>
+      </div>
+      <div class="block child-block" ng-mouseover="showUp_2()" ng-mouseleave="showUp_2()">
+          <img class="color-filter" src="../../../assets/img/education/17.png">
+          <img class="photo" src="../../../assets/img/education/3.png">
+          <a class="quest" href="/article/Wisconsin" ng-class="{'childText': showSelf_2}" ng-mouseover="showUp_2()" ng-mouseleave="showUp_2()">Wisconsin</a>
+      </div>
+      <div class="block parent-block">
+        <img class="color-filter" src="../../../assets/img/education/17.png" ng-class="{'active': isActive_2}" ng-mouseover="showUp_2()" ng-mouseleave="showUp_2()">
+          <img class="photo" src="../../../assets/img/education/4.png">
+          <a class="quest" data-toggle="collapse" data-parent="#accordion" href="#collapse4" ng-mouseover="showUp_2()" ng-mouseleave="showUp_2()">Statutes of Limitations</a>
+      </div>
+      <div class="block child-block" ng-mouseover="showUp_3()" ng-mouseleave="showUp_3()">
+        <img class="color-filter" src="../../../assets/img/education/17.png">
+          <img class="photo" src="../../../assets/img/education/5.png">
+          <a class="quest" href="/article/Depression" ng-class="{'childText': showSelf_3}" ng-mouseover="showUp_3()" ng-mouseleave="showUp_3()">Depression</a>
+      </div>
+      <div class="block child-block" ng-mouseover="showUp_1()" ng-mouseleave="showUp_1()">
+        <img class="color-filter" src="../../../assets/img/education/17.png">
+          <img class="photo" src="../../../assets/img/education/6.png">
+          <a class="quest" href="/article/Intimate_Partner_Sexual_Violence" ng-class="{'childText': showSelf_1}" ng-mouseover="showUp_1()" ng-mouseleave="showUp_1()" >Intimate Partner Sexual Violence</a>
+
+      </div>
+      <div class="block child-block"  ng-mouseover="showUp_2()" ng-mouseleave="showUp_2()">
+        <img class="color-filter" src="../../../assets/img/education/17.png">
+          <img class="photo" src="../../../assets/img/education/7.png">
+          <a class="quest" href="/article/Illinois" ng-class="{'childText': showSelf_2}" ng-mouseover="showUp_2()" ng-mouseleave="showUp_2()">Illinois</a>
+
+      </div>
+      <div class="block child-block" ng-mouseover="showUp_2()" ng-mouseleave="showUp_2()">
+        <img class="color-filter" src="../../../assets/img/education/17.png">
+          <img class="photo" src="../../../assets/img/education/8.png">
+          <a class="quest" href="/article/Minnesota" ng-class="{'childText': showSelf_2}" ng-mouseover="showUp_2()" ng-mouseleave="showUp_2()">Minnesota</a>
+
+      </div>
+      <div class="block parent-block">
+        <img class="color-filter" src="../../../assets/img/education/17.png" ng-class="{'active': isActive_3}" ng-mouseover="showUp_3()" ng-mouseleave="showUp_3()">
+          <img class="photo" src="../../../assets/img/education/9.png">
+          <a class="quest" data-toggle="collapse" data-parent="#accordion" href="#collapse2" ng-mouseover="showUp_3()" ng-mouseleave="showUp_3()">Effects of Sexual Violence</a>
+
+      </div>
+      <div class="block child-block" ng-mouseover="showUp_3()" ng-mouseleave="showUp_3()">
+        <img class="color-filter" src="../../../assets/img/education/17.png">
+          <img class="photo" src="../../../assets/img/education/10.png">
+
+          <a class="quest" href="/article/Flashbacks" ng-class="{'childText': showSelf_3}" ng-mouseover="showUp_3()" ng-mouseleave="showUp_3()">Flashbacks</a>
+      </div>
+      <div class="block parent-block">
+        <img class="color-filter" src="../../../assets/img/education/17.png" ng-class="{'active': isActive_4}" ng-mouseover="showUp_4()" ng-mouseleave="showUp_4()">
+          <img class="photo" src="../../../assets/img/education/11.png">
+            <a class="quest" data-toggle="collapse" data-parent="#accordion" href="#collapse3" ng-mouseover="showUp_4()" ng-mouseleave="showUp_4()">Understanding Consent</a>
+      </div>
+      <div class="block child-block" ng-mouseover="showUp_5()" ng-mouseleave="showUp_5()">
+        <img class="color-filter" src="../../../assets/img/education/17.png">
+          <img class="photo" src="../../../assets/img/education/12.png">
+            <a class="quest" href="/resources" ng-class="{'childText': showSelf_5}" ng-mouseover="showUp_5()" ng-mouseleave="showUp_5()">University of Wisconsin-Madison Campus Resources</a>
+
+      </div>
+      <div class="block child-block" ng-mouseover="showUp_3()" ng-mouseleave="showUp_3()">
+        <img class="color-filter" src="../../../assets/img/education/17.png">
+          <img class="photo" src="../../../assets/img/education/13.png">
+          <a class="quest" href="/article/PTSD" ng-class="{'childText': showSelf_3}" ng-mouseover="showUp_3()" ng-mouseleave="showUp_3()">Post-Traumatic Stress Disorder</a>
+
+      </div>
+      <div class="block child-block" ng-mouseover="showUp_4()" ng-mouseleave="showUp_4()">
+        <img class="color-filter" src="../../../assets/img/education/17.png">
+          <img class="photo" src="../../../assets/img/education/14.png">
+          <a class="quest"  href="/article/Legal" ng-class="{'childText': showSelf_4}" ng-mouseover="showUp_4()" ng-mouseleave="showUp_4()">Legal Role of Consent</a>
+      </div>
+      <div class="block child-block" ng-mouseover="showUp_4()" ng-mouseleave="showUp_4()">
+        <img class="color-filter" src="../../../assets/img/education/17.png">
+          <img class="photo" src="../../../assets/img/education/15.png">
+
+          <a class="quest" href="/article/Consent" ng-class="{'childText': showSelf_4}" ng-mouseover="showUp_4()" ng-mouseleave="showUp_4()">What Consent Looks Like</a>
+      </div>
+      <div class="block parent-block">
+        <img class="color-filter" src="../../../assets/img/education/17.png" ng-class="{'active': isActive_5}" ng-mouseover="showUp_5()" ng-mouseleave="showUp_5()">
+          <img class="photo" src="../../../assets/img/education/16.png">
+
+          <a class="quest" data-toggle="collapse" data-parent="#accordion" href="#collapse5" ng-mouseover="showUp_5()" ng-mouseleave="showUp_5()">Resources</a>
       </div>
     </div>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-          Effects of Sexual Violence</a>
-        </h4>
-      </div>
-      <div id="collapse2" class="panel-collapse collapse">
-        <ul class="list-group">
-          <li class="list-group-item"><a href="/article/Depression">Depression</a></li>
-          <li class="list-group-item"><a href="/article/Flashbacks">Flashbacks</a></li>
-          <li class="list-group-item"><a href="/article/PTSD">Post-Traumatic Stress Disorder</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-          Understanding Consent</a>
-        </h4>
-      </div>
-      <div id="collapse3" class="panel-collapse collapse">
-        <ul class="list-group">
-          <li class="list-group-item"><a href="/article/Consent">What Consent Looks Like</a></li>
-          <li class="list-group-item"><a href="/article/Legal">Legal Role of Consent</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
-        Statutes of Limitations</a>
-        </h4>
-      </div>
-      <div id="collapse4" class="panel-collapse collapse">
-        <ul class="list-group">
-          <li class="list-group-item"><a href="/article/Wisconsin">Wisconsin</a></li>
-          <li class="list-group-item"><a href="/article/Illinois">Illinois</a></li>
-          <li class="list-group-item"><a href="/article/Minnesota">Minnesota</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
-        Resources</a>
-        </h4>
-      </div>
-      <div id="collapse5" class="panel-collapse collapse">
-        <ul class="list-group">
-            <li class="list-group-item"><a href="/resources">University of Wisconsin-Madison Campus Resources</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
 </div>
