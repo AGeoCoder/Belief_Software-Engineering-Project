@@ -25,7 +25,7 @@ angular.module('articleController', [])
     if ($scope.articleID == "Flashbacks") {
       $scope.title = 'Flashbacks'
       //$scope.articleURL = 'https://cdn.rawgit.com/amgreenstreet/BeliefMeToo/master/public/articles/' + $routeParams.articleID + '.html';
-      $scope.relatedURL = '/article/Drepression'
+      $scope.relatedURL = '/article/Depression'
       $scope.relatedTitle = 'Depression'
     }
     if ($scope.articleID == "PTSD") {
