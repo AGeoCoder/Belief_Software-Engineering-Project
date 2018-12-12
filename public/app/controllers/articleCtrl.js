@@ -31,7 +31,7 @@ angular.module('articleController', [])
     if ($scope.articleID == "PTSD") {
       $scope.title = 'Post-Traumatic Stress Disorder'
       //$scope.articleURL = 'https://cdn.rawgit.com/amgreenstreet/BeliefMeToo/master/public/articles/' + $routeParams.articleID + '.html';
-      $scope.relatedURL = '/article/Drepression'
+      $scope.relatedURL = '/article/Depression'
       $scope.relatedTitle = 'Depression'
     }
     if ($scope.articleID == "Consent") {

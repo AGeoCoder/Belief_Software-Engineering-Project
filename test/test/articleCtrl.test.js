@@ -16,7 +16,7 @@ describe('articleController', function(){
       //expect(1).toBe(1);
 			//expect($scope.greeting).toEqual('Hola!');
       expect($scope.articleID).toEqual('What_is_sexual_assault');
-      expect($scope.articleURL).toEqual('https://cdn.rawgit.com/amgreenstreet/BeliefMeToo/master/public/articles/What_is_sexual_assault.txt');
+      expect($scope.articleURL).toEqual('https://cdn.rawgit.com/amgreenstreet/BeliefMeToo/master/public/articles/What_is_sexual_assault.html');
       expect($scope.relatedURL).toEqual('/article/Intimate_Partner_Sexual_Violence');
       expect($scope.relatedTitle).toEqual('Intimate Partner Sexual Violence');
     });
@@ -29,10 +29,118 @@ describe('articleController', function(){
       //expect(1).toBe(1);
       //expect($scope.greeting).toEqual('Hola!');
       expect($scope.articleID).toEqual('Intimate_Partner_Sexual_Violence');
-      expect($scope.articleURL).toEqual('https://cdn.rawgit.com/amgreenstreet/BeliefMeToo/master/public/articles/Intimate_Partner_Sexual_Violence.txt');
+      expect($scope.articleURL).toEqual('https://cdn.rawgit.com/amgreenstreet/BeliefMeToo/master/public/articles/Intimate_Partner_Sexual_Violence.html');
       expect($scope.relatedURL).toEqual('/article/What_is_sexual_assault');
       expect($scope.relatedTitle).toEqual('What is sexual assault');
+      expect($scope.hide).toEqual(true);
     });
+
+    it('depression test', function () {
+      var $scope = {};
+      //$routeParams.articleID = 'test';
+      //var routeParams.articleID = 'What_is_sexual_assault';
+      var controller = $controller('articleCtrl', { $scope: $scope, $routeParams: {articleID: 'Depression'}});
+      //expect(1).toBe(1);
+      //expect($scope.greeting).toEqual('Hola!');
+      expect($scope.articleID).toEqual('Depression');
+      expect($scope.articleURL).toEqual('https://cdn.rawgit.com/amgreenstreet/BeliefMeToo/master/public/articles/Depression.html');
+      expect($scope.relatedURL).toEqual('/article/Flashbacks');
+      expect($scope.relatedTitle).toEqual('Flashbacks');
+    });
+
+    it('Flashbacks test', function () {
+      var $scope = {};
+      //$routeParams.articleID = 'test';
+      //var routeParams.articleID = 'What_is_sexual_assault';
+      var controller = $controller('articleCtrl', { $scope: $scope, $routeParams: {articleID: 'Flashbacks'}});
+      //expect(1).toBe(1);
+      //expect($scope.greeting).toEqual('Hola!');
+      expect($scope.articleID).toEqual('Flashbacks');
+      expect($scope.articleURL).toEqual('https://cdn.rawgit.com/amgreenstreet/BeliefMeToo/master/public/articles/Flashbacks.html');
+      expect($scope.relatedURL).toEqual('/article/Depression');
+      expect($scope.relatedTitle).toEqual('Depression');
+    });
+
+    it('PTSD test', function () {
+      var $scope = {};
+      //$routeParams.articleID = 'test';
+      //var routeParams.articleID = 'What_is_sexual_assault';
+      var controller = $controller('articleCtrl', { $scope: $scope, $routeParams: {articleID: 'PTSD'}});
+      //expect(1).toBe(1);
+      //expect($scope.greeting).toEqual('Hola!');
+      expect($scope.articleID).toEqual('PTSD');
+      expect($scope.articleURL).toEqual('https://cdn.rawgit.com/amgreenstreet/BeliefMeToo/master/public/articles/PTSD.html');
+      expect($scope.relatedURL).toEqual('/article/Depression');
+      expect($scope.relatedTitle).toEqual('Depression');
+    });
+
+    it('Consent test', function () {
+      var $scope = {};
+      //$routeParams.articleID = 'test';
+      //var routeParams.articleID = 'What_is_sexual_assault';
+      var controller = $controller('articleCtrl', { $scope: $scope, $routeParams: {articleID: 'Consent'}});
+      //expect(1).toBe(1);
+      //expect($scope.greeting).toEqual('Hola!');
+      expect($scope.articleID).toEqual('Consent');
+      expect($scope.articleURL).toEqual('https://cdn.rawgit.com/amgreenstreet/BeliefMeToo/master/public/articles/Consent.html');
+      expect($scope.relatedURL).toEqual('/article/Legal');
+      expect($scope.relatedTitle).toEqual('Legal Role of Consent');
+    });
+
+    it('Legal test', function () {
+      var $scope = {};
+      //$routeParams.articleID = 'test';
+      //var routeParams.articleID = 'What_is_sexual_assault';
+      var controller = $controller('articleCtrl', { $scope: $scope, $routeParams: {articleID: 'Legal'}});
+      //expect(1).toBe(1);
+      //expect($scope.greeting).toEqual('Hola!');
+      expect($scope.articleID).toEqual('Legal');
+      expect($scope.articleURL).toEqual('https://cdn.rawgit.com/amgreenstreet/BeliefMeToo/master/public/articles/Legal.html');
+      expect($scope.relatedURL).toEqual('/article/Consent');
+      expect($scope.relatedTitle).toEqual('What Consent Looks Like');
+    });
+
+    it('Wisconsin test', function () {
+      var $scope = {};
+      //$routeParams.articleID = 'test';
+      //var routeParams.articleID = 'What_is_sexual_assault';
+      var controller = $controller('articleCtrl', { $scope: $scope, $routeParams: {articleID: 'Wisconsin'}});
+      //expect(1).toBe(1);
+      //expect($scope.greeting).toEqual('Hola!');
+      expect($scope.articleID).toEqual('Wisconsin');
+      expect($scope.articleURL).toEqual('https://cdn.rawgit.com/amgreenstreet/BeliefMeToo/master/public/articles/Wisconsin.html');
+      // expect($scope.relatedURL).toEqual('/article/Consent');
+      // expect($scope.relatedTitle).toEqual('What Consent Looks Like');
+    });
+
+    it('Illinois test', function () {
+      var $scope = {};
+      //$routeParams.articleID = 'test';
+      //var routeParams.articleID = 'What_is_sexual_assault';
+      var controller = $controller('articleCtrl', { $scope: $scope, $routeParams: {articleID: 'Illinois'}});
+      //expect(1).toBe(1);
+      //expect($scope.greeting).toEqual('Hola!');
+      expect($scope.articleID).toEqual('Illinois');
+      expect($scope.articleURL).toEqual('https://cdn.rawgit.com/amgreenstreet/BeliefMeToo/master/public/articles/Illinois.html');
+      // expect($scope.relatedURL).toEqual('/article/Consent');
+      // expect($scope.relatedTitle).toEqual('What Consent Looks Like');
+    });
+
+    it('Minnesota test', function () {
+      var $scope = {};
+      //$routeParams.articleID = 'test';
+      //var routeParams.articleID = 'What_is_sexual_assault';
+      var controller = $controller('articleCtrl', { $scope: $scope, $routeParams: {articleID: 'Minnesota'}});
+      //expect(1).toBe(1);
+      //expect($scope.greeting).toEqual('Hola!');
+      expect($scope.articleID).toEqual('Minnesota');
+      expect($scope.articleURL).toEqual('https://cdn.rawgit.com/amgreenstreet/BeliefMeToo/master/public/articles/Minnesota.html');
+      expect($scope.hide).toEqual(false);
+      // expect($scope.relatedURL).toEqual('/article/Consent');
+      // expect($scope.relatedTitle).toEqual('What Consent Looks Like');
+    });
+
+
 
 	});
 });
