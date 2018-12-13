@@ -78,6 +78,7 @@ angular.module('commController', ['postServices', 'authServices', 'primaryContro
           app.hide = true;
           document.getElementById('title').value = '';
           document.getElementById('bodyInfo').value = '';
+          app.getPosts();
         } else {
           // show error message
           app.errorMsg = data.data.message;
