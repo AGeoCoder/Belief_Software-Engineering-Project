@@ -26,6 +26,9 @@ h2{
   color: rgb(242,180,182);
 }
 
+a{
+  color: rgb(242,180,182);
+}
 
 p{
   font-size:1.8vmin;
@@ -80,5 +83,5 @@ p{
 
 footer{
   height:7vh;
-  background-color: rgb(243,225,225);
+  background-color: rgb(255,241,241);
 }
