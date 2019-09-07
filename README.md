@@ -1,5 +1,5 @@
 # Belief
-CS 506 Software Engineering Project
+Software Engineering Class Project
 
 To start:
 1. Make sure MongoDB and nodejs are installed on your machine
