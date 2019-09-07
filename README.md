@@ -1,4 +1,4 @@
-# BeliefMeToo
+# Belief
 CS 506 Software Engineering Project
 
 To start:
